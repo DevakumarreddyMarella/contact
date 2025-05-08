@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | HealthCare Hub</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    html{scroll-behavior: smooth;}
+
+    .hero { background: linear-gradient(to right, #007bff, #00c6ff); color: white; padding: 60px 0; text-align: center; }
+
+    .navbar .nav-link.active {
+      color: #ffc107 !important; 
+      font-weight: 600; 
+      border-bottom: 2px solid #ffc107; 
+      padding-bottom: 4px;
+    }
+    .navbar .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    .container2 {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    p.subheading {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 50px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .info-card {
+      background-color: #fff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .info-card i {
+      font-size: 26px;
+      color: #6366f1;
+      margin-bottom: 12px;
+    }
+
+    .info-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .info-card p {
+      font-size: 0.9rem;
+      color: #444;
+      margin: 0;
+    }
+
+    .form-section {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-section h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #333;
+      text-align: center;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fafafa;
+      transition: all 0.2s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #6366f1;
+      background-color: #fff;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    }
+
+    form button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #6366f1;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #4f46e5;
+    }
+     /* AI Chatbot */
+  .help-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #e0f7fa;
+    color: #007bff;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .help-button:hover {
+    background-color: #b2ebf2;
+  }
+
+  /* Chat Panel */
+  .chatbot-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+  }
+
+  .chatbot-header {
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chatbot-body {
+    padding: 16px;
+    font-size: 0.95rem;
+    color: #444;
+    min-height: 120px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  /* Placeholder for now */
+  .placeholder-text {
+    text-align: center;
+    color: #888;
+    margin-top: 20px;
+  }
+  .help-button,
+  .chatbot-panel,
+  .chatbot-header,
+  .chatbot-body {
+    font-family: 'Nunito', sans-serif;
+  }
+    /* footer */
+    footer {
+      background-color: #333;
+      color: white;
+    }
+
+    .footer-link,
+    footer p {
+      color: #cccccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: small;
+    }
+
+    .footer-link:hover,
+    footer p:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+    footer h5 {
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .form-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+  
+</head>
+<body >
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm"  style="background-color: rgba(20, 30, 121, 0.95); font-family: 'Arial', sans-serif;">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white fs-4" href="#">
+        HealthCare <span class="text-warning">Hub</span>
+      </a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-3">
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="about-us.html">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="consult.html">Consult</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium" href="pricing.html">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium active" href="contact-us.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light btn-sm px-3 rounded-pill" href="login.html">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning btn-sm px-3 rounded-pill fw-semibold" href="signup.html">
+              <i class="bi bi-person-plus"></i> Sign Up
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <!-- banner  -->
+  <section class="hero">
+    <div class="container" style="font-family: 'Poppins', sans-serif;">
+      <h1 class="display-5 fw-bold">We’re Here to Help</h1>
+      <p class="lead">Have questions or need support? Reach out to our team — we’re just a message away.</p>
+      <a href="#contact-section" class="btn btn-light mt-3 bn-lg">Contact Us</a>
+    </div>
+  </section>
+
+  <div class="container2">
+    <h1>Contact Us</h1>
+    <p class="subheading">Need help, have a question, or want to say hello? We're all ears.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <i class="bi bi-geo-alt-fill"></i>
+        <h4>Office</h4>
+        <p>Banglore</p>
+      </div>
+      <div class="info-card">
+        <i class="bi bi-telephone-fill"></i>
+        <h4>Phone</h4>
+        <p>+91 9876543210</p>
+      </div>
+      <div class="info-card">
+        <i class="bi bi-envelope-fill"></i>
+        <h4>Email</h4>
+        <p>healthcarehub@.com</p>
+      </div>
+      <div class="info-card">
+        <i class="bi bi-clock-fill"></i>
+        <h4>Hours</h4>
+        <p>Mon–Fri: 9AM–6PM</p>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Send a Message</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="tel" placeholder="Your Number" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+   <!-- Floating AI Assistant Button -->
+   <button class="help-button" onclick="toggleChatbot()" title="AI Assistant">
+    <i class="bi bi-robot"></i> AI Assistant
+  </button>
+
+  <!-- AI Assistant Chat Panel -->
+  <div id="chatbot" class="chatbot-panel">
+    <div class="chatbot-header">
+      <span>AI Health Assistant</span>
+      <button onclick="toggleChatbot()" class="close-btn"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="chatbot-body">
+      <p class="placeholder-text">👋 Hi! I’m here to help with anything health-related.</p>
+      <!-- Replace this with real AI integration if needed -->
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; border-radius: 12px; overflow: hidden;">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18..."
+      width="100%" height="350" frameborder="0" allowfullscreen="" loading="lazy">
+    </iframe>
+  </div>
+  <!-- footer  -->
+  <footer class="footer bg-dark text-white py-5">
+    <div class="container">
+      <div class="row text-center text-md-start gy-4">
+  
+        <!-- Column 1: About -->
+        <div class="col-12 col-md-4">
+          <h5 class="fw-bold mb-3">HealthCare Hub</h5>
+          <p style="color: #cccccc;">Empowering healthcare with AI-powered tools and verified doctors for every individual.</p>
+        </div>
+  
+        <!-- Column 2: Quick Links -->
+        <div class="col-12 col-md-4">
+          <h5 class="fw-bold mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about-us.html" class="footer-link">About Us</a></li>
+            <li><a href="consult.html" class="footer-link">Consult</a></li>
+            <li><a href="pricing.html" class="footer-link">Pricing</a></li>
+            <li><a href="contact-us.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+  
+        <!-- Column 3: Contact + Social Media -->
+        <div class="col-12 col-md-4">
+          <h5 class="fw-bold mb-3">Contact</h5>
+          <p class="mb-1">📧 support@healthcarehub.com</p>
+          <p class="mb-1">📞 +91-98765-43210</p>
+          <p class="mb-3">📍 Bengaluru, India</p>
+  
+          <h6 class="fw-semibold mt-3 mb-2">Follow Us</h6>
+          <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+            <a href="https://facebook.com" target="_blank" class="text-white fs-5"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" class="text-white fs-5"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="text-white fs-5"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="text-white fs-5"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com" target="_blank" class="text-white fs-5"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+  
+      </div>
+  
+      <!-- Bottom Text -->
+      <div class="text-center pt-4 mt-4 border-top border-secondary small">
+        © 2025 HealthCare Hub. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+  
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleChatbot() {
+      const panel = document.getElementById('chatbot');
+      panel.style.display = panel.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>
